@@ -1,0 +1,38 @@
+{
+"managedDataIdentifierIds": [
+    "ADDRESS",
+    "CREDIT_CARD_NUMBER"
+],
+    "managedDataIdentifierSelector": "INCLUDE",    
+    "description": "Review Mla rds via macie",    
+    "jobType": "ONE_TIME",    
+    "s3JobDefinition": {
+        "bucketDefinitions": [
+            {
+                "accountId": "811884064162",
+                "buckets": [
+                    "mla-macie-rds-snapshot"
+                ]
+            }
+        ],
+        "scoping": {
+            "includes": {
+                "and": [
+                    {
+                        "simpleScopeTerm": {
+                            "comparator": "STARTS_WITH",
+                            "key": "OBJECT_KEY",
+                            "values": [
+                                "macie-dbsnapshot-autotest1/"
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "tags": {
+        "KeyName": "Project",
+        "KeyValue": "Amazon Macie Demo"
+    }
+}
