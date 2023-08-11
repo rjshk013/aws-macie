@@ -1,17 +1,21 @@
 {
 "managedDataIdentifierIds": [
     "ADDRESS",
-    "CREDIT_CARD_NUMBER"
+    "CREDIT_CARD_NUMBER",
+    "CREDIT_CARD_NUMBER_(NO_KEYWORD)",
+    "DATE_OF_BIRTH",
+    "NAME"
+    
 ],
     "managedDataIdentifierSelector": "INCLUDE",    
-    "description": "Review Mla rds via macie",    
+    "description": "Review sensitive rds via macie",    
     "jobType": "ONE_TIME",    
     "s3JobDefinition": {
         "bucketDefinitions": [
             {
-                "accountId": "811884064162",
+                "accountId": "123456789",
                 "buckets": [
-                    "mla-macie-rds-snapshot"
+                    "s3-bucket-scan-data"
                 ]
             }
         ],
@@ -23,7 +27,7 @@
                             "comparator": "STARTS_WITH",
                             "key": "OBJECT_KEY",
                             "values": [
-                                "macie-dbsnapshot-autotest1/"
+                                "scanned-bucket-prefixfolder/"
                             ]
                         }
                     }
